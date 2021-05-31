@@ -47,15 +47,17 @@ namespace PersonenProjekt
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbMaennlich = new System.Windows.Forms.RadioButton();
-            this.rbWeiblich = new System.Windows.Forms.RadioButton();
             this.rbDivers = new System.Windows.Forms.RadioButton();
+            this.rbWeiblich = new System.Windows.Forms.RadioButton();
+            this.rbMaennlich = new System.Windows.Forms.RadioButton();
             this.tbGeschlecht = new System.Windows.Forms.TextBox();
             this.lbAnrede = new System.Windows.Forms.Label();
             this.gbAnrede = new System.Windows.Forms.GroupBox();
-            this.rbHerr = new System.Windows.Forms.RadioButton();
-            this.rbFrau = new System.Windows.Forms.RadioButton();
             this.rbOhne = new System.Windows.Forms.RadioButton();
+            this.rbFrau = new System.Windows.Forms.RadioButton();
+            this.rbHerr = new System.Windows.Forms.RadioButton();
+            this.lbAnzahl = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbAnrede.SuspendLayout();
             this.SuspendLayout();
@@ -188,6 +190,7 @@ namespace PersonenProjekt
             // 
             // button2
             // 
+            this.button2.Enabled = false;
             this.button2.Location = new System.Drawing.Point(334, 344);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 21);
@@ -217,18 +220,17 @@ namespace PersonenProjekt
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Geschlecht";
             // 
-            // rbMaennlich
+            // rbDivers
             // 
-            this.rbMaennlich.AutoSize = true;
-            this.rbMaennlich.Checked = true;
-            this.rbMaennlich.Location = new System.Drawing.Point(17, 20);
-            this.rbMaennlich.Name = "rbMaennlich";
-            this.rbMaennlich.Size = new System.Drawing.Size(67, 17);
-            this.rbMaennlich.TabIndex = 0;
-            this.rbMaennlich.TabStop = true;
-            this.rbMaennlich.Text = "männlich";
-            this.rbMaennlich.UseVisualStyleBackColor = true;
-            this.rbMaennlich.CheckedChanged += new System.EventHandler(this.rbMaennlich_CheckedChanged);
+            this.rbDivers.AutoSize = true;
+            this.rbDivers.Location = new System.Drawing.Point(174, 20);
+            this.rbDivers.Name = "rbDivers";
+            this.rbDivers.Size = new System.Drawing.Size(53, 17);
+            this.rbDivers.TabIndex = 2;
+            this.rbDivers.TabStop = true;
+            this.rbDivers.Text = "divers";
+            this.rbDivers.UseVisualStyleBackColor = true;
+            this.rbDivers.CheckedChanged += new System.EventHandler(this.rbDivers_CheckedChanged);
             // 
             // rbWeiblich
             // 
@@ -242,17 +244,18 @@ namespace PersonenProjekt
             this.rbWeiblich.UseVisualStyleBackColor = true;
             this.rbWeiblich.CheckedChanged += new System.EventHandler(this.rbWeiblich_CheckedChanged);
             // 
-            // rbDivers
+            // rbMaennlich
             // 
-            this.rbDivers.AutoSize = true;
-            this.rbDivers.Location = new System.Drawing.Point(174, 20);
-            this.rbDivers.Name = "rbDivers";
-            this.rbDivers.Size = new System.Drawing.Size(53, 17);
-            this.rbDivers.TabIndex = 2;
-            this.rbDivers.TabStop = true;
-            this.rbDivers.Text = "divers";
-            this.rbDivers.UseVisualStyleBackColor = true;
-            this.rbDivers.CheckedChanged += new System.EventHandler(this.rbDivers_CheckedChanged);
+            this.rbMaennlich.AutoSize = true;
+            this.rbMaennlich.Checked = true;
+            this.rbMaennlich.Location = new System.Drawing.Point(17, 20);
+            this.rbMaennlich.Name = "rbMaennlich";
+            this.rbMaennlich.Size = new System.Drawing.Size(67, 17);
+            this.rbMaennlich.TabIndex = 0;
+            this.rbMaennlich.TabStop = true;
+            this.rbMaennlich.Text = "männlich";
+            this.rbMaennlich.UseVisualStyleBackColor = true;
+            this.rbMaennlich.CheckedChanged += new System.EventHandler(this.rbMaennlich_CheckedChanged);
             // 
             // tbGeschlecht
             // 
@@ -283,6 +286,28 @@ namespace PersonenProjekt
             this.gbAnrede.TabIndex = 23;
             this.gbAnrede.TabStop = false;
             // 
+            // rbOhne
+            // 
+            this.rbOhne.AutoSize = true;
+            this.rbOhne.Location = new System.Drawing.Point(191, 8);
+            this.rbOhne.Name = "rbOhne";
+            this.rbOhne.Size = new System.Drawing.Size(51, 17);
+            this.rbOhne.TabIndex = 2;
+            this.rbOhne.Text = "Ohne";
+            this.rbOhne.UseVisualStyleBackColor = true;
+            this.rbOhne.CheckedChanged += new System.EventHandler(this.rbOhne_CheckedChanged);
+            // 
+            // rbFrau
+            // 
+            this.rbFrau.AutoSize = true;
+            this.rbFrau.Location = new System.Drawing.Point(98, 9);
+            this.rbFrau.Name = "rbFrau";
+            this.rbFrau.Size = new System.Drawing.Size(46, 17);
+            this.rbFrau.TabIndex = 1;
+            this.rbFrau.Text = "Frau";
+            this.rbFrau.UseVisualStyleBackColor = true;
+            this.rbFrau.CheckedChanged += new System.EventHandler(this.rbFrau_CheckedChanged);
+            // 
             // rbHerr
             // 
             this.rbHerr.AutoSize = true;
@@ -296,33 +321,32 @@ namespace PersonenProjekt
             this.rbHerr.UseVisualStyleBackColor = true;
             this.rbHerr.CheckedChanged += new System.EventHandler(this.rbHerr_CheckedChanged);
             // 
-            // rbFrau
+            // lbAnzahl
             // 
-            this.rbFrau.AutoSize = true;
-            this.rbFrau.Location = new System.Drawing.Point(98, 9);
-            this.rbFrau.Name = "rbFrau";
-            this.rbFrau.Size = new System.Drawing.Size(46, 17);
-            this.rbFrau.TabIndex = 1;
-            this.rbFrau.Text = "Frau";
-            this.rbFrau.UseVisualStyleBackColor = true;
-            this.rbFrau.CheckedChanged += new System.EventHandler(this.rbFrau_CheckedChanged);
+            this.lbAnzahl.AutoSize = true;
+            this.lbAnzahl.Location = new System.Drawing.Point(333, 259);
+            this.lbAnzahl.Name = "lbAnzahl";
+            this.lbAnzahl.Size = new System.Drawing.Size(35, 13);
+            this.lbAnzahl.TabIndex = 24;
+            this.lbAnzahl.Text = "label3";
             // 
-            // rbOhne
+            // button3
             // 
-            this.rbOhne.AutoSize = true;
-            this.rbOhne.Location = new System.Drawing.Point(191, 8);
-            this.rbOhne.Name = "rbOhne";
-            this.rbOhne.Size = new System.Drawing.Size(51, 17);
-            this.rbOhne.TabIndex = 2;
-            this.rbOhne.Text = "Ohne";
-            this.rbOhne.UseVisualStyleBackColor = true;
-            this.rbOhne.CheckedChanged += new System.EventHandler(this.rbOhne_CheckedChanged);
+            this.button3.Location = new System.Drawing.Point(334, 306);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(162, 27);
+            this.button3.TabIndex = 25;
+            this.button3.Text = "Personen speichern";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 379);
+            this.ClientSize = new System.Drawing.Size(541, 419);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.lbAnzahl);
             this.Controls.Add(this.gbAnrede);
             this.Controls.Add(this.lbAnrede);
             this.Controls.Add(this.tbGeschlecht);
@@ -385,6 +409,8 @@ namespace PersonenProjekt
         private System.Windows.Forms.RadioButton rbOhne;
         private System.Windows.Forms.RadioButton rbFrau;
         private System.Windows.Forms.RadioButton rbHerr;
+        private System.Windows.Forms.Label lbAnzahl;
+        private System.Windows.Forms.Button button3;
     }
 }
 

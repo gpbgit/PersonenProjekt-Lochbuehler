@@ -13,13 +13,15 @@ namespace PersonenProjekt
     public partial class Form1 : Form
     {
         private List<Person> liPersonen;
+        private Datei datei;
         public Form1()
         {
             InitializeComponent();
-            liPersonen = new List<Person>();
-
-            liPersonen.Add(new Person("Hurtig", "Hugo"));
-            liPersonen.Add(new Person("Lustig", "Peter", "","","","55","männlich", "Herr"));
+            //liPersonen = new List<Person>();
+            datei = new Datei();
+            liPersonen = datei.liesPersonenDatei();
+            //liPersonen.Add(new Person("Hurtig", "Hugo"));
+            //liPersonen.Add(new Person("Lustig", "Peter", "","","","55","männlich", "Herr"));
 
             alleAnzeigen();
         }
@@ -55,6 +57,10 @@ namespace PersonenProjekt
                 MessageBox.Show(ex.Message, "Fehler",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            finally
+            {
+                comboBox1.Visible = true;
+            }
             
         }
         private void leereTbs()
@@ -80,6 +86,8 @@ namespace PersonenProjekt
             {
                 comboBox1.Items.Add(p.getName());
             }
+
+            lbAnzahl.Text = liPersonen.Count.ToString() + " Einträge vhd.";
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -114,14 +122,16 @@ namespace PersonenProjekt
                 rbHerr.Checked = true;
             else
                 if (p.Anrede == "Frau")
-                rbFrau.Checked = true;
-            else
-                rbOhne.Checked = true;
+                    rbFrau.Checked = true;
+                else
+                    rbOhne.Checked = true;
+
         }
         // ListBox entmarkieren
         private void button3_Click(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = -1;
+            comboBox1.Visible = false;
         }
         // Eintrag löschen
         private void button2_Click(object sender, EventArgs e)
@@ -198,6 +208,16 @@ namespace PersonenProjekt
         private void rbOhne_CheckedChanged(object sender, EventArgs e)
         {
             lbAnrede.Text = "Sehr geehrte Damen und Herren";
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            datei.schreibePersonenDatei(liPersonen);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            label3.Text = comboBox2.Text;
         }
     }
 }
