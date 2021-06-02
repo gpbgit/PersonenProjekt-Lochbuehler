@@ -217,7 +217,7 @@ namespace PersonenProjekt
 
         private void button4_Click(object sender, EventArgs e)
         {
-            label3.Text = comboBox2.Text;
+            //abel3.Text = comboBox2.Text;
         }
     }
 }
